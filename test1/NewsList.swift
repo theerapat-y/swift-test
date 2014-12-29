@@ -10,10 +10,9 @@ import Foundation
 
 
 class NewsList {
-    var id: Int
+    var id: String
     var time: String
     var date: String
-    var row: Int
     
     var url: String
     var ingress: String
@@ -24,11 +23,10 @@ class NewsList {
     
     var videoIcon: Bool
     
-    init(id: Int, time: String, date: String, row: Int, url: String, ingress: String, title: String, imageurl: String, thumbnailurl: String, videoicon: Bool) {
+    init(id: String, time: String, date: String, url: String, ingress: String, title: String, imageurl: String, thumbnailurl: String, videoicon: Bool) {
         self.id = id
         self.time = time
         self.date = date
-        self.row = row
         self.url = url
         self.ingress = ingress
         self.title = title
@@ -42,8 +40,7 @@ class NewsList {
         
         if results.count > 0 {
             for newsItem in results {
-                let id = (newsItem["id"] as AnyObject? as? Int) ?? 0
-                let row = (newsItem["row"] as AnyObject? as? Int) ?? 0
+                let id = (newsItem["id"] as AnyObject? as? String) ?? ""
                 
                 let time = (newsItem["time"] as AnyObject? as? String) ?? ""
                 let date = (newsItem["date"] as AnyObject? as? String) ?? ""
@@ -56,7 +53,7 @@ class NewsList {
                 let videoIconInt = (newsItem["video_icon"] as AnyObject? as? Int) ?? 0
                 let videoIcon: Bool = videoIconInt == 1 ? true : false
             
-                var item = NewsList(id: id, time: time, date: date, row: row, url: url, ingress: ingress, title: title, imageurl: imgUrl, thumbnailurl: thumbnailUrl, videoicon: videoIcon)
+                var item = NewsList(id: id, time: time, date: date, url: url, ingress: ingress, title: title, imageurl: imgUrl, thumbnailurl: thumbnailUrl, videoicon: videoIcon)
                 
                 newsList.append(item)
                 
