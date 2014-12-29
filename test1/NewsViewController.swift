@@ -22,18 +22,6 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return newsList.count
     }
     
-    func executeIfNotNilWithKey(key: String, rowData: NSDictionary) -> String? {
-        if let value: AnyObject = rowData[key] {
-            if !NSNull().isEqual(value) {
-                return value as? String
-            } else {
-                return nil
-            }
-        } else {
-            return nil
-        }
-    }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIndentifier) as UITableViewCell
         let news = self.newsList[indexPath.row]
