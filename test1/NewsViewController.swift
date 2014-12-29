@@ -98,8 +98,17 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var detailViewController: DetailViewController = segue.destinationViewController as DetailViewController
+        var newsIndex = firstTableView!.indexPathForSelectedRow()!.row
+        
+        detailViewController.newsList = self.newsList[newsIndex]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "News from ABC Nyheter"
+        
         // Do any additional setup after loading the view, typically from a nib.
         
         jsonLib = JSONLib(delegate: self)

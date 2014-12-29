@@ -15,6 +15,7 @@
 		20409C1C1A4A7EC70087C8A2 /* test1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20409C1B1A4A7EC70087C8A2 /* test1Tests.swift */; };
 		20AABC201A4C15CE00205B75 /* JSONLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AABC1F1A4C15CE00205B75 /* JSONLib.swift */; };
 		20AABC221A4D422400205B75 /* NewsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AABC211A4D422400205B75 /* NewsList.swift */; };
+		20AABC241A511A3F00205B75 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AABC231A511A3F00205B75 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		20409C1B1A4A7EC70087C8A2 /* test1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test1Tests.swift; sourceTree = "<group>"; };
 		20AABC1F1A4C15CE00205B75 /* JSONLib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONLib.swift; sourceTree = "<group>"; };
 		20AABC211A4D422400205B75 /* NewsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsList.swift; sourceTree = "<group>"; };
+		20AABC231A511A3F00205B75 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +84,14 @@
 			isa = PBXGroup;
 			children = (
 				20409C051A4A7EC60087C8A2 /* AppDelegate.swift */,
-				20409C071A4A7EC60087C8A2 /* NewsViewController.swift */,
+				20AABC231A511A3F00205B75 /* DetailViewController.swift */,
+				20AABC1F1A4C15CE00205B75 /* JSONLib.swift */,
 				20409C091A4A7EC60087C8A2 /* Main.storyboard */,
+				20409C071A4A7EC60087C8A2 /* NewsViewController.swift */,
+				20AABC211A4D422400205B75 /* NewsList.swift */,
 				20409C0C1A4A7EC60087C8A2 /* Images.xcassets */,
 				20409C0E1A4A7EC70087C8A2 /* LaunchScreen.xib */,
 				20409C031A4A7EC60087C8A2 /* Supporting Files */,
-				20AABC1F1A4C15CE00205B75 /* JSONLib.swift */,
-				20AABC211A4D422400205B75 /* NewsList.swift */,
 			);
 			path = test1;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			files = (
 				20409C081A4A7EC60087C8A2 /* NewsViewController.swift in Sources */,
 				20AABC201A4C15CE00205B75 /* JSONLib.swift in Sources */,
+				20AABC241A511A3F00205B75 /* DetailViewController.swift in Sources */,
 				20AABC221A4D422400205B75 /* NewsList.swift in Sources */,
 				20409C061A4A7EC60087C8A2 /* AppDelegate.swift in Sources */,
 			);
