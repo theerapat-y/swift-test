@@ -41,7 +41,12 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         dispatch_async(dispatch_get_main_queue(), {
                             
                             if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) as UITableViewCell? {
-                                cellToUpdate.imageView?.image = image
+                                var imgSize = CGSizeMake(93, 70)
+                                UIGraphicsBeginImageContext(imgSize)
+                                var imgRect = CGRectMake(0, 0, imgSize.width, imgSize.height)
+                                image?.drawInRect(imgRect)
+                                cellToUpdate.imageView?.image = UIGraphicsGetImageFromCurrentImageContext()
+                                UIGraphicsEndImageContext()
                                 cell.setNeedsLayout()
                             }
                         })
@@ -54,7 +59,12 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
             } else {
                 dispatch_async(dispatch_get_main_queue(), {
                     if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
-                        cellToUpdate.imageView?.image = image
+                        var imgSize = CGSizeMake(93, 70)
+                        UIGraphicsBeginImageContext(imgSize)
+                        var imgRect = CGRectMake(0, 0, imgSize.width, imgSize.height)
+                        image?.drawInRect(imgRect)
+                        cellToUpdate.imageView?.image = UIGraphicsGetImageFromCurrentImageContext()
+                        UIGraphicsEndImageContext()
                         cell.setNeedsLayout()
                     }
                 })
