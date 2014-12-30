@@ -18,6 +18,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, JSONLibProto
     @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var articleTextView: UITextView!
     
+    
     var newsList: NewsList?
     var newsArticle: NewsArticle?
     var jsonLib: JSONLib?
@@ -51,10 +52,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, JSONLibProto
             println(self.newsArticle!.id)
             println(self.newsArticle!.title)
             println(self.newsArticle!.imageUrl)
-            println(self.newsArticle!.content)
+            println(self.newsArticle!.ingress)
             
             self.titleTextView.text = self.newsArticle!.title
-            self.articleTextView.text = self.newsArticle!.content
+            self.articleTextView.text = self.newsArticle!.ingress
             
             var image = self.imgCache[self.newsArticle!.imageUrl]
             
