@@ -51,6 +51,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, JSONLibProto
             println(self.newsArticle!.id)
             println(self.newsArticle!.title)
             println(self.newsArticle!.imageUrl)
+            println(self.newsArticle!.content)
             
             self.titleTextView.text = self.newsArticle!.title
             self.articleTextView.text = self.newsArticle!.content
@@ -58,8 +59,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate, JSONLibProto
             var image = self.imgCache[self.newsArticle!.imageUrl]
             
             if image == nil {
-                let imgUrlString = "http://www.abcnyheter.no" + self.newsArticle!.imageUrl
-                let imgUrl: NSURL? = NSURL(string: (imgUrlString))
+                var imgUrlString = self.newsList?.imageUrl
+                if self.newsArticle!.imageUrl != "" {
+                    imgUrlString = "http://www.abcnyheter.no" + self.newsArticle!.imageUrl
+                }
+                let imgUrl: NSURL? = NSURL(string: imgUrlString!)
                 
                 let request: NSURLRequest = NSURLRequest(URL: imgUrl!)
                 NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in

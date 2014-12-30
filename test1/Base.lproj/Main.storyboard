@@ -98,30 +98,52 @@
                                 <rect key="frame" x="16" y="0.0" width="568" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qgB-7z-vxO" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="600"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WWe-O5-SU8" userLabel="Header Image">
-                                                <rect key="frame" x="-100" y="5" width="26" height="180"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WWe-O5-SU8" userLabel="Header Image">
+                                                <rect key="frame" x="8" y="-6" width="560" height="180"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="180" id="6GX-aL-QZm"/>
-                                                    <constraint firstAttribute="width" constant="26" id="af8-uj-Yb5"/>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="180" id="PJo-Du-Utv"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="6GX-aL-QZm"/>
+                                                    </mask>
+                                                </variation>
                                             </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="News title, Lorem ipsum dolor sit er elit lamet." translatesAutoresizingMaskIntoConstraints="NO" id="OMQ-B9-3ft" userLabel="Title Text">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="News title, Lorem ipsum dolor sit er elit lamet." translatesAutoresizingMaskIntoConstraints="NO" id="OMQ-B9-3ft" userLabel="Title Text">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="F87-Wa-cHe"/>
                                                     <constraint firstAttribute="height" constant="60" id="Haz-ng-Vmi"/>
+                                                    <constraint firstAttribute="height" constant="30" id="eWw-wX-ocl"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="Haz-ng-Vmi"/>
+                                                        <exclude reference="eWw-wX-ocl"/>
+                                                    </mask>
+                                                </variation>
                                                 <connections>
                                                     <outlet property="delegate" destination="JWy-ZC-DzB" id="a3d-Fb-qkL"/>
                                                 </connections>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6yY-gH-a67" userLabel="News Content">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6yY-gH-a67" userLabel="News Content">
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="arP-4C-1cL"/>
+                                                </constraints>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="arP-4C-1cL"/>
+                                                    </mask>
+                                                </variation>
                                                 <connections>
                                                     <outlet property="delegate" destination="JWy-ZC-DzB" id="Hqv-eJ-Cbd"/>
                                                 </connections>
@@ -129,24 +151,30 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="6yY-gH-a67" secondAttribute="trailing" constant="5" id="4O8-vH-dIy"/>
-                                            <constraint firstItem="WWe-O5-SU8" firstAttribute="top" secondItem="6yY-gH-a67" secondAttribute="top" id="62T-1f-1a7"/>
-                                            <constraint firstItem="WWe-O5-SU8" firstAttribute="leading" secondItem="qgB-7z-vxO" secondAttribute="leading" constant="-100" id="LSn-r9-1S7"/>
-                                            <constraint firstItem="6yY-gH-a67" firstAttribute="leading" secondItem="qgB-7z-vxO" secondAttribute="leading" constant="5" id="Moh-e3-QZN"/>
-                                            <constraint firstAttribute="trailing" secondItem="WWe-O5-SU8" secondAttribute="trailing" constant="94" id="OSf-zr-T18"/>
-                                            <constraint firstItem="WWe-O5-SU8" firstAttribute="top" secondItem="6yY-gH-a67" secondAttribute="bottom" id="ZrI-lE-tWO"/>
-                                            <constraint firstItem="OMQ-B9-3ft" firstAttribute="leading" secondItem="qgB-7z-vxO" secondAttribute="leading" constant="10" id="arW-3s-ijF"/>
-                                            <constraint firstItem="6yY-gH-a67" firstAttribute="top" secondItem="qgB-7z-vxO" secondAttribute="top" constant="5" id="bqM-v7-WzU"/>
-                                            <constraint firstItem="OMQ-B9-3ft" firstAttribute="top" secondItem="qgB-7z-vxO" secondAttribute="top" constant="190" id="lqn-xG-wo9"/>
-                                            <constraint firstAttribute="trailing" secondItem="OMQ-B9-3ft" secondAttribute="trailing" constant="10" id="uMa-bU-Yf0"/>
+                                            <constraint firstItem="OMQ-B9-3ft" firstAttribute="top" relation="lessThanOrEqual" secondItem="qgB-7z-vxO" secondAttribute="top" constant="185" id="CXx-pQ-sdS"/>
+                                            <constraint firstAttribute="trailing" secondItem="OMQ-B9-3ft" secondAttribute="trailing" constant="5" id="Nh0-db-Zz8"/>
+                                            <constraint firstAttribute="centerY" secondItem="6yY-gH-a67" secondAttribute="centerY" id="PJU-b5-hQm"/>
+                                            <constraint firstItem="WWe-O5-SU8" firstAttribute="leading" secondItem="qgB-7z-vxO" secondAttribute="leading" id="Pnd-36-zqy"/>
+                                            <constraint firstAttribute="bottom" secondItem="6yY-gH-a67" secondAttribute="bottom" id="VEQ-pc-lXc"/>
+                                            <constraint firstItem="OMQ-B9-3ft" firstAttribute="leading" secondItem="WWe-O5-SU8" secondAttribute="trailing" constant="5" id="dGh-Mh-g7j"/>
+                                            <constraint firstItem="WWe-O5-SU8" firstAttribute="top" secondItem="qgB-7z-vxO" secondAttribute="top" id="eIK-ys-APk"/>
+                                            <constraint firstItem="6yY-gH-a67" firstAttribute="leading" secondItem="qgB-7z-vxO" secondAttribute="leading" constant="5" id="mXm-Aq-ZVl"/>
+                                            <constraint firstAttribute="trailing" secondItem="6yY-gH-a67" secondAttribute="trailing" constant="5" id="nsa-ow-6qt"/>
+                                            <constraint firstItem="6yY-gH-a67" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qgB-7z-vxO" secondAttribute="top" constant="200" id="rSE-pE-QXM"/>
+                                            <constraint firstItem="OMQ-B9-3ft" firstAttribute="leading" secondItem="WWe-O5-SU8" secondAttribute="trailing" id="zSG-Db-fya"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="zSG-Db-fya"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="qgB-7z-vxO" firstAttribute="top" secondItem="gJP-JJ-Zb1" secondAttribute="top" id="3sb-A2-e2p"/>
-                                    <constraint firstAttribute="bottom" secondItem="qgB-7z-vxO" secondAttribute="bottom" id="53r-jV-TB4"/>
-                                    <constraint firstItem="qgB-7z-vxO" firstAttribute="leading" secondItem="gJP-JJ-Zb1" secondAttribute="leading" id="Vbn-UT-lBk"/>
-                                    <constraint firstAttribute="trailing" secondItem="qgB-7z-vxO" secondAttribute="trailing" id="hlw-JZ-cAY"/>
+                                    <constraint firstItem="qgB-7z-vxO" firstAttribute="top" secondItem="gJP-JJ-Zb1" secondAttribute="top" id="HJs-yF-SPs"/>
+                                    <constraint firstAttribute="trailing" secondItem="qgB-7z-vxO" secondAttribute="trailing" id="NsM-wb-L84"/>
+                                    <constraint firstItem="qgB-7z-vxO" firstAttribute="leading" secondItem="gJP-JJ-Zb1" secondAttribute="leading" id="g8x-MQ-uS6"/>
+                                    <constraint firstAttribute="bottom" secondItem="qgB-7z-vxO" secondAttribute="bottom" id="ok8-9e-T1k"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="JWy-ZC-DzB" id="Ze9-A1-K20"/>
