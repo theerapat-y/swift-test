@@ -9,35 +9,31 @@
 import Foundation
 import UIKit
 
-class DetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, JSONLibProtocol {
-    
-    @IBOutlet weak var detailTableView: UITableView!
+class DetailViewController: UIViewController, UIScrollViewDelegate, JSONLibProtocol {
+
+    @IBOutlet var refView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var headerImageView: UIImageView!
+    @IBOutlet weak var titleTextView: UITextView!
+    @IBOutlet weak var articleTextView: UITextView!
     
     var newsList: NewsList?
     var newsArticle: NewsArticle?
     var jsonLib: JSONLib?
-    
-    let imageCellIdentifier = "Header Image"
-    let titleCellIdentifier = "Title Text"
+    var imgCache = [String: UIImage]()
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let imageCell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(imageCellIdentifier) as UITableViewCell
-        
-        println(newsArticle?.title)
-        
-        return imageCell
-    }
-    
-    
     override func viewDidLoad() {
+        var leftConstraint: NSLayoutConstraint = NSLayoutConstraint(item: self.contentView, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: self.refView, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: 0)
+        var rightContraint: NSLayoutConstraint = NSLayoutConstraint(item: self.contentView, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: self.refView, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: 0)
+        
+        self.refView.addConstraint(leftConstraint)
+        self.refView.addConstraint(rightContraint)
+        
         super.viewDidLoad()
         self.title = "News"
         
@@ -51,7 +47,41 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     func didReceiveJSONResults(results: NSDictionary) {
         dispatch_async(dispatch_get_main_queue(), {
             self.newsArticle = NewsArticle.NewsArticleWithJSON(results)
-            self.detailTableView!.reloadData()
+            
+            println(self.newsArticle!.id)
+            println(self.newsArticle!.title)
+            println(self.newsArticle!.imageUrl)
+            
+            self.titleTextView.text = self.newsArticle!.title
+            self.articleTextView.text = self.newsArticle!.content
+            
+            var image = self.imgCache[self.newsArticle!.imageUrl]
+            
+            if image == nil {
+                let imgUrlString = "http://www.abcnyheter.no" + self.newsArticle!.imageUrl
+                let imgUrl: NSURL? = NSURL(string: (imgUrlString))
+                
+                let request: NSURLRequest = NSURLRequest(URL: imgUrl!)
+                NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                    if error == nil {
+                        image = UIImage(data: data)
+                        
+                        self.imgCache[self.newsArticle!.imageUrl] = image
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.headerImageView.image = image
+                        })
+                        
+                    } else {
+                        println("Error: \(error.localizedDescription)")
+                    }
+                })
+                
+            } else {
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.headerImageView.image = image
+                })
+            }
+            
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }

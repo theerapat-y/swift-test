@@ -17,10 +17,11 @@ class NewsArticle {
     var url: String
     var ingress: String
     var title: String
+    var content: String
     
     var imageUrl: String
     
-    init(id: Int, time: String, date: String, author: String, url: String, ingress: String, title: String, imageurl: String) {
+    init(id: Int, time: String, date: String, author: String, url: String, ingress: String, title: String, content: String, imageurl: String) {
         self.id = id
         self.time = time
         self.date = date
@@ -28,6 +29,7 @@ class NewsArticle {
         self.url = url
         self.ingress = ingress
         self.title = title
+        self.content = content
         self.imageUrl = imageurl
     }
     
@@ -39,10 +41,11 @@ class NewsArticle {
         let date = (results["date"] as AnyObject? as? String) ?? ""
         let url = (results["url"] as AnyObject? as? String) ?? ""
         let title = (results["title"] as AnyObject? as? String) ?? ""
+        let content = (results["content"] as AnyObject? as? String) ?? ""
         let ingress = (results["ingress"] as AnyObject? as? String) ?? ""
         let imgUrl = (results["imageurl"] as AnyObject? as? String) ?? ""
         
-        var item = NewsArticle(id: id, time: time, date: date, author: author, url: url, ingress: ingress, title: title, imageurl: imgUrl)
+        var item = NewsArticle(id: id, time: time, date: date, author: author, url: url, ingress: ingress, title: title, content: content, imageurl: imgUrl)
         
         
         return item

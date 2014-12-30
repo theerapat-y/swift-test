@@ -67,14 +67,6 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var alertView: UIAlertView = UIAlertView()
-        alertView.title = "URL of this news"
-        alertView.message = newsList[indexPath.row].url
-        alertView.addButtonWithTitle("OK")
-        alertView.show()
-    }
-    
     func didReceiveJSONResults(results: NSDictionary) {
         var resultsArray = results["results"] as NSArray
         

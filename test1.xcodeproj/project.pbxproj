@@ -17,8 +17,6 @@
 		20AABC221A4D422400205B75 /* NewsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AABC211A4D422400205B75 /* NewsList.swift */; };
 		20AABC241A511A3F00205B75 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AABC231A511A3F00205B75 /* DetailViewController.swift */; };
 		20AABC261A515E4E00205B75 /* NewsArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AABC251A515E4E00205B75 /* NewsArticle.swift */; };
-		20AABC281A516B5200205B75 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AABC271A516B5200205B75 /* ImageCell.swift */; };
-		20AABC2A1A516BA400205B75 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AABC291A516BA400205B75 /* TitleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +44,6 @@
 		20AABC211A4D422400205B75 /* NewsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsList.swift; sourceTree = "<group>"; };
 		20AABC231A511A3F00205B75 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		20AABC251A515E4E00205B75 /* NewsArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsArticle.swift; sourceTree = "<group>"; };
-		20AABC271A516B5200205B75 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
-		20AABC291A516BA400205B75 /* TitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +95,6 @@
 				20AABC251A515E4E00205B75 /* NewsArticle.swift */,
 				20AABC211A4D422400205B75 /* NewsList.swift */,
 				20409C031A4A7EC60087C8A2 /* Supporting Files */,
-				20AABC271A516B5200205B75 /* ImageCell.swift */,
-				20AABC291A516BA400205B75 /* TitleCell.swift */,
 			);
 			path = test1;
 			sourceTree = "<group>";
@@ -234,9 +228,7 @@
 				20AABC261A515E4E00205B75 /* NewsArticle.swift in Sources */,
 				20AABC201A4C15CE00205B75 /* JSONLib.swift in Sources */,
 				20AABC241A511A3F00205B75 /* DetailViewController.swift in Sources */,
-				20AABC2A1A516BA400205B75 /* TitleCell.swift in Sources */,
 				20AABC221A4D422400205B75 /* NewsList.swift in Sources */,
-				20AABC281A516B5200205B75 /* ImageCell.swift in Sources */,
 				20409C061A4A7EC60087C8A2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
